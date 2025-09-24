@@ -3,12 +3,15 @@ const mongoose=require('mongoose')
 const express = require('express');
 const {connection}=require('./config/db')
 const companyRoutes = require('./routes/CompanyRouts');
-
-
+const cors=require('cors')
 const Company=require('./models/companySchema')
+
+
 
 const app=express();
 app.use(express.json())
+app.use(cors())
+
 
 app.use('/api/company', companyRoutes)
 
