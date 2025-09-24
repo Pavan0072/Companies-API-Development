@@ -32,7 +32,9 @@ app.post("/api/companies/bulk",async(req,res)=>{
     }
 })     
 
-app.listen(process.env.PORT,async ()=>{
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT,async ()=>{
     try{
         await connection
         console.log("Database has been connected succefully")
@@ -40,7 +42,7 @@ app.listen(process.env.PORT,async ()=>{
     catch(error){
         console.log("Error connecting to database",error)
     }
-    console.log(`server is up and running on: http://localhost:${process.env.PORT}`)
+    console.log(`server is up and running on: http://localhost:${PORT}`)
 
 })
 
