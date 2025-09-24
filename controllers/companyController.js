@@ -36,8 +36,11 @@ const createCompanies= async(req,res)=>{
 // Get all companies with optional filters (location, industry, pagination)
 
 const getCompanies= async(req,res)=>{
-    let {location,industry,page=1,limit=1}=req.query
+    let {name,location,industry,page=1,limit=1}=req.query
     let filters ={}
+    if (name) {
+    filters.name = new RegExp(name, "i");
+}
     if(location){
         filters.location=new RegExp(location, "i");
     }
