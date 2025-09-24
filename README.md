@@ -9,12 +9,8 @@ A RESTful API built with **Node.js, Express, and MongoDB (Mongoose)** for managi
 * [Features](#features)
 * [Tech Stack](#tech-stack)
 * [Folder Structure](#folder-structure)
-* [Installation](#installation)
 * [Environment Variables](#environment-variables)
 * [API Endpoints](#api-endpoints)
-* [Example Requests](#example-requests)
-* [Postman Testing](#postman-testing)
-* [Error Handling](#error-handling)
 * [License](#license)
 
 ---
@@ -81,3 +77,4 @@ Backend/
 
 
 This project is licensed under the MIT License.
+
