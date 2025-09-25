@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Documentation</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 20px;
+    }
+    h1 {
+        color: #333;
+    }
+    .section {
+        margin-bottom: 30px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .endpoint {
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        padding: 10px;
+        background-color: #007bff1a;
+        margin-bottom: 5px;
+        border-radius: 5px;
+    }
+    .endpoint:hover {
+        background-color: #007bff33;
+    }
+    .method {
+        font-weight: bold;
+        color: #28a745;
+    }
+    pre {
+        background-color: #eee;
+        padding: 10px;
+        border-radius: 6px;
+        overflow-x: auto;
+        display: none; /* hide initially */
+        margin-top: 5px;
+    }
+</style>
+</head>
+<body>
+<h1>API Documentation</h1>
+
+<div class="section">
+    <h2>✅ Companies Collection</h2>
+
+    <div class="endpoint" onclick="toggleResponse(this)">
+        <span><span class="method">GET</span> /api/company/</span>
+        <span>Fetch all companies</span>
+    </div>
+    <pre>
+response body:
+{
+  "totalcount": 14,
+  "companies": [
+    {
+      "_id": "68d3538782f5f5a028a45a0b",
+      "name": "Tata Consultancy Services (TCS)",
+      "location": "Mumbai",
+      "industry": "IT Services",
+      "revenue": 11150000000000,
+      "employeeCount": 613069,
+      "foundedYear": "1968",
+      "logo": "https://companiesmarketcap.com/img/company-logos/512/TCS.NS.png",
+      "description": "Largest IT services company in India, with services including consulting, software development, and business solutions.",
+      "__v": 0
+    },
+    {
+      "_id": "68d3539c82f5f5a028a45a0d",
+      "name": "Infosys Limited",
+      "location": "Bengaluru",
+      "industry": "IT Services",
+      "revenue": 6100000000000,
+      "employeeCount": 323578,
+      "foundedYear": "1981",
+      "logo": "https://companiesmarketcap.com/img/company-logos/512/INFY.NS.png",
+      "description": "Global IT services and consulting company providing technology and engineering services.",
+      "__v": 0
+    },
+    {
+      "_id": "68d3585ab8a886c16219c7ee",
+      "name": "Wipro Limited",
+      "location": "Bengaluru",
+      "industry": "IT Services",
+      "revenue": 2610000000000,
+      "employeeCount": 234054,
+      "foundedYear": "1945",
+      "logo": "https://companiesmarketcap.com/img/company-logos/512/WIPRO.NS.png",
+      "description": "Top IT services firm focusing on digital transformation, cloud, and AI-driven solutions.",
+      "__v": 0
+    }
+  ]
+}
+    </pre>
+
+    <div class="endpoint" onclick="toggleResponse(this)">
+        <span><span class="method">POST</span> /api/companies/bulk</span>
+        <span>Insert multiple companies</span>
+    </div>
+    <pre>
+Request Body:
+[
+  {
+    "name": "Tata Consultancy Services (TCS)",
+    "location": "Mumbai",
+    "industry": "IT Services",
+    "revenue": 11150000000000,
+    "employeeCount": 613069,
+    "foundedYear": "1968",
+    "logo": "https://companiesmarketcap.com/img/company-logos/512/TCS.NS.png",
+    "description": "Largest IT services company in India, with services including consulting, software development, and business solutions."
+  },
+  {
+    "name": "Infosys Limited",
+    "location": "Bengaluru",
+    "industry": "IT Services",
+    "revenue": 6100000000000,
+    "employeeCount": 323578,
+    "foundedYear": "1981",
+    "logo": "https://companiesmarketcap.com/img/company-logos/512/INFY.NS.png",
+    "description": "Global IT services and consulting company providing technology and engineering services."
+  }
+]
+
+Response:
+{
+  "message": "Companies inserted successfully",
+  "data": [
+    {
+      "name": "ICICI Bank",
+      "location": "Mumbai",
+      "industry": "Banking",
+      "revenue": 7590000000000,
+      "employeeCount": 126660,
+      "foundedYear": "1994",
+      "logo": "https://companiesmarketcap.com/img/company-logos/512/ICICIBANK.NS.png",
+      "description": "Leading private sector bank with a wide range of financial products.",
+      "_id": "68d45b9b975a8410287a86a3",
+      "__v": 0
+    },
+    {
+      "name": "Bharti Airtel",
+      "location": "New Delhi",
+      "industry": "Telecommunications",
+      "revenue": 7140000000000,
+      "employeeCount": 18000,
+      "foundedYear": "1995",
+      "logo": "https://companiesmarketcap.com/img/company-logos/512/BHARTIARTL.NS.png",
+      "description": "Global telecom service provider with strong presence in Asia and Africa.",
+      "_id": "68d45b9b975a8410287a86a4",
+      "__v": 0
+    },
+    {
+      "name": "State Bank of India",
+      "location": "Mumbai",
+      "industry": "Banking",
+      "revenue": 6770000000000,
+      "employeeCount": 232296,
+      "foundedYear": "1955",
+      "logo": "https://companiesmarketcap.com/img/company-logos/512/SBIN.NS.png",
+      "description": "India’s largest public sector bank offering diverse financial services.",
+      "_id": "68d45b9b975a8410287a86a5",
+      "__v": 0
+    }
+  ]
+}
+    </pre>
+</div>
+
+<div class="section">
+    <h2>✅ Single Company</h2>
+
+    <div class="endpoint" onclick="toggleResponse(this)">
+        <span><span class="method">POST</span> /api/company</span>
+        <span>Create one company</span>
+    </div>
+    <pre>
+Request Body:
+{
+    "name": "Zensar Technologies",
+    "location": "Pune",
+    "industry": "IT Services",
+    "revenue": 120000000000,
+    "employeeCount": 12000,
+    "foundedYear": "1991",
+    "logo": "https://zensar.com/assets/images/logos/zensar-logo.svg",
+    "description": "Engineering digital solutions with focus on AI, automation, and cloud transformation."
+}
+
+Response:
+{
+  "message": "Company succefully created"
+}
+    </pre>
+
+    <div class="endpoint" onclick="toggleResponse(this)">
+        <span><span class="method">PUT</span> /api/company/:id</span>
+        <span>Update whole company</span>
+    </div>
+    <pre>
+Request Body:
+ {
+    "name": "Infosys Limited",
+    "location": "Bengaluru",
+    "industry": "IT Services",
+    "revenue": 6100000000000,
+    "employeeCount": 323600,
+    "foundedYear": "1981",
+    "logo": "https://companiesmarketcap.com/img/company-logos/512/INFY.NS.png",
+    "description": "Global IT services and consulting company providing technology and engineering services."
+  } 
+
+Response:
+{
+  "message": "Company has updated successfully"
+}
+    </pre>
+
+    <div class="endpoint" onclick="toggleResponse(this)">
+        <span><span class="method">PATCH</span> /api/company/:id</span>
+        <span>Update fields</span>
+    </div>
+    <pre>
+Request Body:
+{
+  "employeeCount": 323578
+}
+
+Response:
+{
+    "name": "Infosys Limited",
+    "location": "Bengaluru",
+    "industry": "IT Services",
+    "revenue": 6100000000000,
+    "employeeCount": 323578,
+    "foundedYear": "1981",
+    "logo": "https://companiesmarketcap.com/img/company-logos/512/INFY.NS.png",
+    "description": "Global IT services and consulting company providing technology and engineering services."
+}
+    </pre>
+
+    <div class="endpoint" onclick="toggleResponse(this)">
+        <span><span class="method">DELETE</span> /api/company/:id</span>
+        <span>Delete company</span>
+    </div>
+    <pre>
+Response:
+{
+  "message": "Company deleted successfully"
+}
+    </pre>
+</div>
+
+<div class="section">
+    <h2>✅ Locations</h2>
+
+    <div class="endpoint" onclick="toggleResponse(this)">
+        <span><span class="method">GET</span> /api/companies/locations</span>
+        <span>Get unique locations</span>
+    </div>
+    <pre>
+Response:
+[
+  "Hyderabad",
+  "Bangalore",
+  "Delhi",
+  "Mumbai",
+  "Chennai"
+]
+    </pre>
+</div>
+
+<script>
+function toggleResponse(element) {
+    const pre = element.nextElementSibling;
+    pre.style.display = pre.style.display === 'block' ? 'none' : 'block';
+}
+</script>
+</body>
+</html>

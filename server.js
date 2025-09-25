@@ -5,6 +5,7 @@ const {connection}=require('./config/db')
 const companyRoutes = require('./routes/CompanyRouts');
 const cors=require('cors')
 const Company=require('./models/companySchema')
+const path = require('path');
 
 
 
@@ -18,9 +19,12 @@ app.use('/api/company', companyRoutes)
 
 
 
-app.get("/",(req,res)=>{
-    res.json({welcome: "Welcome to the Company API"})
-})
+// app.get("/",(req,res)=>{
+//     res.json({welcome: "Welcome to the Company API"})
+// })
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 
 app.post("/api/companies/bulk",async(req,res)=>{
